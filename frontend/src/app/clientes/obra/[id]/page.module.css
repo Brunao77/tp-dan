@@ -1,0 +1,8 @@
+.button{
+  width: fit-content;
+}
+
+.inputContainer{
+  display: flex;
+  gap:10px;
+}
