@@ -52,8 +52,8 @@ export default function Productos() {
       <Link href="/clientes/new">
         <button className={styles.button}>Crear nuevo cliente</button>
       </Link>
-      <Link href="/clientes/obra/new">
-        <button className={styles.button}>Crear nuevo cliente</button>
+      <Link href="/clientes/obra">
+        <button className={styles.button}>Asignar obra</button>
       </Link>
       <div className={styles.inputContainer}>
         <input
@@ -81,7 +81,6 @@ export default function Productos() {
               <td>
                 <Link href={`/clientes/${client.id}`}><button>Editar</button></Link>
                 <button onClick={() => handleDelete(client.id)}>Eliminar</button>
-                <Link href={`/clientes/obra/${client.id}`}><button>Asignar Obra</button></Link>
               </td>
             </tr>
           ))}
