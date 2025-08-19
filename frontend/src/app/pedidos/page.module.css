@@ -1,0 +1,16 @@
+.button{
+  width: fit-content;
+}
+
+.inputContainer{
+  display: flex;
+  gap:10px;
+}
+
+.table{
+  text-align:center;
+}
+
+.table td{
+  border: solid 1px white;
+}

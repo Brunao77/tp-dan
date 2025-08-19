@@ -98,7 +98,7 @@ export default function Productos() {
           value={inputs.descuento_promocional} 
           onChange={handleChange} 
         />
-         <select
+        <select
           name="categoriaId"
           value={inputs.categoriaId}
           onChange={handleChange}
