@@ -13,11 +13,11 @@ export default function Productos() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res1 = await fetch(`http://localhost:6080/api/clientes`);
+        const res1 = await fetch(`http://localhost:3080/clientes`);
         const clientes = await res1.json();
         setClientes(clientes);
 
-        const res2 = await fetch(`http://localhost:6080/api/obras`);
+        const res2 = await fetch(`http://localhost:3080/obras`);
         const obras = await res2.json();
         setObras(obras);
        
@@ -37,7 +37,7 @@ export default function Productos() {
   };
   
   const handleSave = async () => {
-    const res = await fetch(`http://localhost:6080/api/obras/${inputs.obra}/asignar-cliente/${inputs.cliente}`, {
+    const res = await fetch(`http://localhost:3080/obras/${inputs.obra}/asignar-cliente/${inputs.cliente}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

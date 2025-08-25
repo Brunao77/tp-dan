@@ -91,7 +91,7 @@ export default function Productos() {
       detalle
     };
 
-    const res = await fetch('http://localhost:6280/api/pedidos', {
+    const res = await fetch('http://localhost:3080/pedidos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

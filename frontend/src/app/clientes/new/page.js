@@ -29,7 +29,7 @@ export default function Productos() {
     };
     console.log(payload)
 
-    const res = await fetch('http://localhost:6080/api/clientes', {
+    const res = await fetch('http://localhost:3080/clientes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

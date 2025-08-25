@@ -19,7 +19,7 @@ export default function Productos() {
   };
   
   const handleSearch = async () => {
-    const res = await fetch("http://localhost:6080/api/clientes")
+    const res = await fetch("http://localhost:3080/clientes")
     const lista = await res.json()
 
     const filtrados = lista.filter(product => {
@@ -33,7 +33,7 @@ export default function Productos() {
     const confirmado = window.confirm("¿Estás seguro de que querés eliminar este cliente?");
     if (!confirmado) return;
 
-    const res = await fetch(`http://localhost:6080/api/clientes/${id}`, {
+    const res = await fetch(`http://localhost:3080/clientes/${id}`, {
       method: 'DELETE',
     });
 

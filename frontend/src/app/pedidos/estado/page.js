@@ -13,7 +13,7 @@ export default function Productos() {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const res = await fetch('http://localhost:6280/api/pedidos');
+        const res = await fetch('http://localhost:3080/pedidos');
         const data = await res.json();
         setPedidos(data);
       } catch (err) {
@@ -33,7 +33,7 @@ export default function Productos() {
   };
 
   const handleSave = async () => {
-    const res = await fetch(`http://localhost:6280/api/pedidos/${inputs.pedido}/estado/${inputs.estado}`, {
+    const res = await fetch(`http://localhost:3080/pedidos/${inputs.pedido}/estado/${inputs.estado}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

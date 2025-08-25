@@ -16,7 +16,7 @@ export default function Productos() {
     useEffect(() => {
       const fetchProducto = async () => {
         try {
-          const res = await fetch(`http://localhost:6080/api/clientes/${id}`);
+          const res = await fetch(`http://localhost:3080/clientes/${id}`);
           const data = await res.json();
           setCliente(data);
           setInputs({
@@ -46,7 +46,7 @@ export default function Productos() {
       cuit: Number(inputs.cuit)
     };
 
-    const res = await fetch(`http://localhost:6080/api/clientes/${id}`, {
+    const res = await fetch(`http://localhost:3080/clientes/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
