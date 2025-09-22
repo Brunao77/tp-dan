@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "6000:3000"
+      - "3000:3000"
     networks:
       - frontend-net
 

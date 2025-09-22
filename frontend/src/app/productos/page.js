@@ -23,7 +23,7 @@ export default function Productos() {
   };
   
   const handleSearch = async () => {
-    const res = await fetch("http://localhost:3080/productos")
+    const res = await fetch("http://localhost:6180/api/productos")
     const lista = await res.json()
 
     const filtrados = lista.filter(product => {

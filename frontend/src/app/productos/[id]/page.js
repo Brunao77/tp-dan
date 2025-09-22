@@ -15,7 +15,7 @@ export default function Productos() {
     useEffect(() => {
       const fetchProducto = async () => {
         try {
-          const res = await fetch(`http://localhost:3080/productos/${id}`);
+          const res = await fetch(`http://localhost:6180/api/productos/${id}`);
           const data = await res.json();
           setProducto(data);
           setInputs({
@@ -44,7 +44,7 @@ export default function Productos() {
       precio: parseFloat(inputs.precio)
     };
 
-    const res = await fetch('http://localhost:3080/productos/stock', {
+    const res = await fetch('http://localhost:6180/api/productos/stock', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
