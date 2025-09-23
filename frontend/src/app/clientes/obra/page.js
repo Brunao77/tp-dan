@@ -13,11 +13,11 @@ export default function Productos() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res1 = await fetch(`http://localhost:6080/api/clientes`);
+        const res1 = await fetch(`http://localhost:3080/clientes`);
         const clientes = await res1.json();
         setClientes(clientes);
 
-        const res2 = await fetch(`http://localhost:6080/api/obras`);
+        const res2 = await fetch(`http://localhost:3080/obras`);
         const obras = await res2.json();
         setObras(obras);
        

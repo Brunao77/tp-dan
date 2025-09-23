@@ -23,6 +23,10 @@ import lombok.Data;
 @Data
 public class Obra {
 
+    public Obra() {
+        this.estado = EstadoObra.PENDIENTE;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

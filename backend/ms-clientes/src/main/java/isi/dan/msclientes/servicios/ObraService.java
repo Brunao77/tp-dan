@@ -33,6 +33,9 @@ public class ObraService {
     }
 
     public Obra save(Obra obra) {
+        if (obra.getEstado() == null) {
+            obra.setEstado(EstadoObra.PENDIENTE);
+        }
         return obraRepository.save(obra);
     }
 

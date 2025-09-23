@@ -90,6 +90,7 @@ export default function Productos() {
       obvservaciones: inputs.obvservaciones,
       detalle
     };
+    console.log(payload);
 
     const res = await fetch('http://localhost:6280/api/pedidos', {
       method: 'POST',

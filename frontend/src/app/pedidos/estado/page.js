@@ -38,7 +38,6 @@ export default function Productos() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
     });
 
     const data = await res.json();

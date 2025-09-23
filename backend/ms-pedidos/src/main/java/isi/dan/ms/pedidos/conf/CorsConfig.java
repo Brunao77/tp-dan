@@ -1,4 +1,4 @@
-package isi.dan.msclientes.conf;
+package isi.dan.ms.pedidos.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

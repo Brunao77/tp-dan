@@ -82,13 +82,13 @@ export default function Productos() {
           </tr>
         </thead>
         <tbody>
-          {results.map(product => (
-            <tr key={product.id}>
+          {results.map(pedido => (
+            <tr key={pedido.id}>
               <td>
-                {product.id}
+                {pedido.id}
                 
               </td>
-              <td>{product.nombre}</td>
+              <td>{pedido.nombre}</td>
             </tr>
           ))}
         </tbody>

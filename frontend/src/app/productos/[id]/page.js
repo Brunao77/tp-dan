@@ -15,7 +15,7 @@ export default function Productos() {
     useEffect(() => {
       const fetchProducto = async () => {
         try {
-          const res = await fetch(`http://localhost:6180/api/productos/${id}`);
+          const res = await fetch(`http://localhost:3080/productos/${id}`);
           const data = await res.json();
           setProducto(data);
           setInputs({
