@@ -44,6 +44,7 @@ services:
       SPRING_RABBITMQ_PORT: 5672
       SPRING_EUREKA_DEFAULT_ZONE: http://ms-eureka-svc:8761/eureka/
       SPRING_INSTANCIA: ms-clientes-svc-1
+      DAN_CLIENTES_INSTANCIA: ms-clientes-svc-1
     ports:
       - "6080:8080"
     depends_on:
@@ -51,6 +52,7 @@ services:
     networks:
       - clientes-net
       - backend-net
+      - graylog
 
   ms-clientes-svc-2:
     image: ms-clientes-svc:latest
@@ -68,6 +70,7 @@ services:
       SPRING_RABBITMQ_PORT: 5672
       SPRING_EUREKA_DEFAULT_ZONE: http://ms-eureka-svc:8761/eureka/
       SPRING_INSTANCIA: ms-clientes-svc-2
+      DAN_CLIENTES_INSTANCIA: ms-clientes-svc-2
     ports:
       - "6081:8080"
     depends_on:
@@ -75,6 +78,7 @@ services:
     networks:
       - clientes-net
       - backend-net
+      - graylog
 
   ms-clientes-svc-3:
     image: ms-clientes-svc:latest
@@ -99,12 +103,15 @@ services:
     networks:
       - clientes-net
       - backend-net
+      - graylog
 
 networks:
   backend-net:
     external: true
   clientes-net:
     driver: bridge
+  graylog:
+    external: true
 
 volumes:
   mysql-data:

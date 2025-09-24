@@ -41,27 +41,42 @@ public class ClienteController {
     @GetMapping
     @LogExecutionTime
     public List<Cliente> getAll() {
-        return clienteService.findAll();
+        log.info("=== INICIO getAll() === Solicitando lista de todos los clientes desde instancia: {}", instancia);
+        List<Cliente> clientes = clienteService.findAll();
+        log.info("=== RESULTADO getAll() === Se encontraron {} clientes", clientes.size());
+        log.warn("=== DEBUG getAll() === Método getAll ejecutado correctamente");
+        return clientes;
     }
     
     @GetMapping("/echo")
     @LogExecutionTime
     public String getEcho() {
-        log.debug("Recibiendo un echo ----- {}",instancia);
+        log.info("=== TEST LOG === Recibiendo un echo desde instancia: {}", instancia);
+        log.warn("=== TEST WARN === Este es un log de WARNING");
+        log.error("=== TEST ERROR === Este es un log de ERROR");
         return Instant.now()+" - "+instancia;
     }
 
     @GetMapping("/{id}")
     @LogExecutionTime
     public ResponseEntity<Cliente> getById(@PathVariable Integer id)  throws ClienteNotFoundException {
+        log.info("Buscando cliente con ID: {} desde instancia: {}", id, instancia);
         Optional<Cliente> cliente = clienteService.findById(id);
+        if (cliente.isEmpty()) {
+            log.warn("Cliente con ID {} no encontrado", id);
+        } else {
+            log.info("Cliente con ID {} encontrado exitosamente", id);
+        }
         return ResponseEntity.ok(cliente.orElseThrow(()-> new ClienteNotFoundException("Cliente "+id+" no encontrado")));
     }
 
     @PostMapping
     @LogExecutionTime
     public Cliente create(@RequestBody @Validated Cliente cliente) {
-        return clienteService.save(cliente);
+        log.info("Creando nuevo cliente desde instancia: {}", instancia);
+        Cliente nuevoCliente = clienteService.save(cliente);
+        log.info("Cliente creado exitosamente");
+        return nuevoCliente;
     }
 
     @PutMapping("/{id}")

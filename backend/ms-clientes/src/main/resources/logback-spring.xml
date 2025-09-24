@@ -38,13 +38,16 @@
   
     <root level="INFO">
       <appender-ref ref="STDOUT" />
+      <appender-ref ref="GELF" />
     </root>
   
-    <logger name="isi.dan.msclientes" additivity="false">
+    <logger name="isi.dan.msclientes" additivity="true">
       <level value="DEBUG"/>
-      <appender-ref ref="GELF" />
-      <appender-ref ref="STDOUT"/>
     </logger>
-  
+
+    <!-- Logger específico para el controlador -->
+    <logger name="isi.dan.msclientes.controller" additivity="true">
+      <level value="INFO"/>
+    </logger>
   
   </configuration>
