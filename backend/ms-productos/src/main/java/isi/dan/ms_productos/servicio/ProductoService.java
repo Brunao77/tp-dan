@@ -78,6 +78,7 @@ public class ProductoService {
 
         producto.setStockActual(nuevoStock);
         producto.setPrecio(stockUpdateDTO.getPrecio());
+        log.info("Actualizado stock y precio del producto {}", producto);
         return productoRepository.save(producto);
     }
 

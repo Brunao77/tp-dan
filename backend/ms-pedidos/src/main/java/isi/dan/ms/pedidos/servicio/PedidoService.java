@@ -53,7 +53,7 @@ public class PedidoService {
 
         /* ---------- 3. Obtener cliente por Gateway ---------- */
         Cliente cliente = restTemplate.getForObject(
-                gatewayUrl + "/clientes/api/clientes/{id}",
+                gatewayUrl + "/clientes/{id}",
                 Cliente.class,
                 pedido.getCliente().getId());
 
@@ -80,7 +80,7 @@ public class PedidoService {
 
             // 5.1 Llamada al MS-PRODUCTOS vía Gateway
             Producto prd = restTemplate.getForObject(
-                    gatewayUrl + "/productos/api/productos/{id}",
+                    gatewayUrl + "/productos/{id}",
                     Producto.class,
                     det.getProducto().getId());
 
@@ -107,7 +107,8 @@ public class PedidoService {
         pedido.setTotal(total);
 
         /* ---------- 6. Regla de descubierto ---------- */
-        if (saldoComprometido.add(total).compareTo(cliente.getMaximoDescubierto()) > 0) {
+        BigDecimal maxDesc = cliente.getMaximoDescubierto() != null ? cliente.getMaximoDescubierto() : BigDecimal.ZERO;
+        if (saldoComprometido.add(total).compareTo(maxDesc) > 0) {
             pedido.setEstado(EstadoPedido.RECHAZADO);
             return pedidoRepository.save(pedido);
         }
