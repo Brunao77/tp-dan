@@ -18,7 +18,7 @@ import isi.dan.msclientes.model.UsuarioHabilitado;
 @Service
 public class ClienteService {
 
-    @Value("${cliente.maximo.descubierto}")
+    @Value("${cliente.maximo.descubierto:1000}")
     private BigDecimal descubierto;
 
     @Autowired

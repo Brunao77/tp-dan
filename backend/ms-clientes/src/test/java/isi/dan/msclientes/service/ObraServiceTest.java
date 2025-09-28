@@ -246,9 +246,12 @@ public class ObraServiceTest {
     void testFinalizarExitoso() {
         //Obra habilitada a finalizada exitoso
         obra.setEstado(EstadoObra.HABILITADA);
+        obra.setCliente(cliente); // Asignar cliente a la obra
 
         // Configurar mocks
         when(obraRepository.save(obra)).thenReturn(obra);
+        when(obraRepository.findByClienteIdAndEstadoEquals(cliente.getId(), EstadoObra.PENDIENTE))
+            .thenReturn(new ArrayList<>()); // No hay obras pendientes
 
         Obra resultado = obraService.finalizar(obra);
 
